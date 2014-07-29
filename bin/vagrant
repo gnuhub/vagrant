@@ -3,9 +3,14 @@
 # Trap interrupts to quit cleanly. This will be overridden at some point
 # by Vagrant. This is made to catch any interrupts while Vagrant is
 # initializing which have historically resulted in stack traces.
+# 复习跟信号有关的知识 
+# unix linux编程实践教程 168页 信号
+# http://ruby-doc.org/core-2.1.2/Signal.html
+# 笔记 http://localhost:8080/wiki/index.php?title=Signal
 Signal.trap("INT") { abort }
 
 # Split arguments by "--" if its there, we'll recombine them later
+# 复制参数数组
 argv = ARGV.dup
 argv_extra = []
 if idx = argv.index("--")
